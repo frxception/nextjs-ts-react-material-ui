@@ -1,0 +1,113 @@
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin-top: 3rem;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin-top: 3rem;
+  /* margin: 1rem; */
+  flex-basis: 45%;
+  /* padding: 1rem; */
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 20px !important;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  width: 100%;
+  margin: auto
+}
+
+.card2{
+  display: flex;
+  justify-content: space-between;
+  font-family: Arial, Helvetica, sans-serif;
+  border-bottom: 1px solid lightblue;
+  padding-bottom: 20px;
+}
+
+.card2 div {
+  flex: 1;
+};
+
+
+.cardroot {
+  margin-bottom: 20;
+  display: flex;
+  width: 100%;
+}
+
+
+.title {
+  font-size: 22px !important;
+  font-weight: bold !important;
+  color:#3077c9 !important;
+  
+}
+
+
+.media {
+  height: 0;
+  padding-top: '56.25%';
+}
+
+.avatar {
+  background-color: red[500],
+}
+.pos{
+  margin-bottom: 15px !important;
+}
+
+.Card.MuiCardHeader-title{
+  font-size: 22px !important;
+}
+
+.card2 .information,
+.card2 .buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card2 img {
+  max-width: 80px;
+  object-fit: cover;
+  margin-left: 40px;
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+  /* color: #0070f3; */
+  border-color: #0070f3;
+}
+
+.card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.logo {
+  height: 1em;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}

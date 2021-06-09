@@ -1,0 +1,23 @@
+.container {
+  /* min-height: 100vh; */
+  width: 100%;
+  /* padding: 0 0.5rem; */
+  margin:0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  vertical-align: top;
+  top: 10px !important;
+}
+
+.main {
+  /* padding: 5rem 0; */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.25rem;
+  width: 100%;
+}
