@@ -63,7 +63,6 @@ const Home: FC<any> = ({ data: {hotelData, profileSettings }}) => {
         
       }else{
         const allHotels = await(await fetch(`http://localhost:3000/api/hotels?partnerId=1&currency=${settings.currency}`)).json();
-        console.log(">>>> allHotels: ", allHotels)
         setHotel( allHotels )
       }
       

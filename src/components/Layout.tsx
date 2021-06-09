@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import styles from '../../styles/Layout.css'
+import styles from '@styles/Layout.module.css'
 import Nav from './Nav';
 import Meta from './Meta';
 import Header from './Header';

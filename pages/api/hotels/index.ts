@@ -6,15 +6,20 @@ import { Hotel, HotelTypes } from '@src/types/HotelTypes';
 // @ts-ignore
 export default async(req: NextApiRequest, res: NextApiResponse)=> {
 
+  // console.log(">>>> hotel index req.partnerId: ", req.query.partnerId)
+  // const API_REMOTE_URL = 'https://5df9cc6ce9f79e0014b6b3dc.mockapi.io/hotels/tokyo'
+
   const cookiePartnerId = getTokenCookie(req, 'partnerId')
-  const partnerId = Number(req.query.partnerId || cookiePartnerId | 1);
+  const partnerId = (req.query) ? Number(req.query.partnerId || 1) : 1;
   const config: RemotePartnersConfig = REMOTE_PARTNERS_CFG.filter(
     (cfg)=> cfg.id === partnerId)[0];
 
   const currency = req.query.currency || config.currencies[0]  
+  // const mainResp = await fetch(`${API_REMOTE_URL}`);
   const mainResp = await fetch(`${API_REMOTE_URL}${config.ctxURI}/${config.region}`);
   const mainJsonData = await mainResp.json();
 
+  // const detailResp =  await fetch(`${API_REMOTE_URL}/1/${currency}`);
   const detailResp =  await fetch(`${API_REMOTE_URL}${config.ctxURI}/${config.region}/1/${currency}`);
   const detailJsonData = await detailResp.json();
 

@@ -187,7 +187,6 @@ const HotelTable: FC<any> = ( {data}: Hotel) => {
     const total = Math.round(Math.abs(( perc * 100 ).toFixed(2)));
     // @ts-ignore
     return totalPerc.length > 0 ? (total === 0 ? 1 : total) : 0;
-    // return totalPerc.length > 0 ? Number( (Math.floor( max - Number(hotel.price) )) / max ).toFixed(2) : 0;
  } 
 
 
@@ -307,14 +306,9 @@ const HotelTable: FC<any> = ( {data}: Hotel) => {
 
         </TableContainer>
 
-
-          
       }
 
 
-      
-
-      
     </div>
   );
 }

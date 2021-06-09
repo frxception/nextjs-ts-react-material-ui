@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "moduleDirectories": ["node_modules", "src"],
     "target": "es5", // Specify ECMAScript target version
     "lib": [
       "dom",
@@ -36,6 +35,6 @@
   },
   "include": [
     "next-env.d.ts", "pages/**/*", "src/**/*", "styles/**/*" // *** The files TypeScript should type check ***
-  ],
+, "__test__/pages/home.test.ts"  ],
   "exclude": ["node_modules", "coverage"] // *** The files to not type check ***
 }

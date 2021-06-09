@@ -41,7 +41,7 @@ export const listAPIHandler = async (context: any, isSSR: boolean = true, isStat
             resolve({ data, settings });
         })
     }catch(e){
-        console.error('ERROR: Unable to get request API.')
+        console.error('ERROR: Unable to get request API: ', e)
         return new Promise<ApiHandlerResp>((resolve) => {
             resolve({ data: undefined, settings: undefined });
         })
