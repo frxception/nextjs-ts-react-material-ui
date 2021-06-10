@@ -7,7 +7,7 @@
 .next
 /.next
 # testing
-/coverage
+# /coverage
 
 # production
 /build

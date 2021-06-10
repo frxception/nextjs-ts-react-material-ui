@@ -34,6 +34,9 @@ const Home: FC<any> = ({ data: {hotelData, profileSettings }}) => {
     }
   }, []);
 
+  const fetchHotelsByCurrency = async (value: string) => {
+    return fetch('http://localhost:3000/api/hotels?partnerId=1&currency='+settings.currency);
+  }
   // @ts-ignore
   const selectCurrency = async (value: string): void=> {
     settings.currency = value;
@@ -42,7 +45,8 @@ const Home: FC<any> = ({ data: {hotelData, profileSettings }}) => {
     storeProfile({...profileSettings, currency: value}, null) ;
     setModalMsg(`Switching to (${settings.currency}) Currency`);
     setModalOpen(true);
-    const result = await(await fetch('http://localhost:3000/api/hotels?partnerId=1&currency='+value)).json();
+    // @ts-ignore
+    const result = await(await fetchHotelsByCurrency(value)).json();
     setHotel( result )
     setModalOpen(false);
   }
@@ -50,20 +54,19 @@ const Home: FC<any> = ({ data: {hotelData, profileSettings }}) => {
   const searchAction = async (keyword: string) => {
       setModalMsg(`Loading search results...`);
       setModalOpen(true);
+
+      // @ts-ignore
+      const reloadHotels = await(await fetchHotelsByCurrency(settings.currency)).json();
       let modHotel = {...hotel};
       
       if(keyword && keyword.length > 0){
-        const filterResults = hotel.hotels.filter((row: HotelTypes)=> 
+        const filterResults = reloadHotels.hotels.filter((row: HotelTypes)=> 
           searchColumns.some((column) =>
             // @ts-ignore
             row[column].toString().toLowerCase().indexOf(keyword.toLowerCase()) > -1
           )
         );
         modHotel = {...hotel, hotels: filterResults };
-        
-      }else{
-        const allHotels = await(await fetch(`http://localhost:3000/api/hotels?partnerId=1&currency=${settings.currency}`)).json();
-        setHotel( allHotels )
       }
       
       setHotel(modHotel)

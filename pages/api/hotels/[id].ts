@@ -9,9 +9,12 @@ import { HotelTypes } from '@src/types/HotelTypes';
 *  https://localhost:3000/api/hotels/<hotel id> ---  static rendered hotel view will use default or existing profile settings
 */
 const handler = async (context: any, res: any): Promise<any> => {
+    // console.log(">>>> test context: ", context);
 
     const hotelId = context.query.id;
     const partnerId = context.query.partnerId;
+    // res.setHeader('Access-Control-Allow-Origin', '*');
+
     const results = await hotelAPIHandler(context, res);
         return new Promise((resolve) => {
             const filtered = results.hotels.filter((hotel: HotelTypes) => hotel.id === Number(hotelId));

@@ -4,7 +4,6 @@ import { Hotel } from "@src/types/HotelTypes";
 import { API_URL, REMOTE_PARTNERS_CFG } from '@src/components/config';
 import { storeProfile } from '@src/utils/storage';
 
-
 interface ApiHandlerResp {
     data: Hotel | undefined,
     settings: ProfileSettings | undefined
@@ -61,7 +60,10 @@ export const listAPIHandler = async (context: any, isSSR: boolean = true, isStat
  export const hotelAPIHandler = async (context: any, res: any): Promise<Hotel> => {
     const partnerId = context.query.partnerId || 1; 
     const currency = context.query.currency || REMOTE_PARTNERS_CFG[0].defaultCurrency; 
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
     const apiURL = `${API_URL}/hotels?partnerId=${partnerId}&currency=${currency}`;
+
     const data = await( await fetch(apiURL)).json();
     return new Promise<Hotel>((resolve) => {
         resolve(data as Hotel);

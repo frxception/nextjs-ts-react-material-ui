@@ -80,28 +80,12 @@ const Search: FC<Props> = ({keyword, action}) => {
         placeholder="Enter hotel search keyword"
         inputProps={{ 'aria-label': 'search hotel keyword' }} onChange={handleChange}
       />
-      <IconButton onClick={handleSubmit} className={classes.iconButton} aria-label="search" disabled={value.length > 0 ? false : true}> 
+      <IconButton onClick={handleSubmit} className={classes.iconButton} aria-label="search"> 
         <SearchIcon  />
       </IconButton>
      
     </Paper>
 
-        // <FormControl  className={classes.formControl}>
-        //     <TextField  onChange={handleChange} id="search-input" label="Enter hotel search keyword (i.e. name, address)" />
-        //     <Button variant="outlined" size="large" color="primary" className={classes.button}>
-        //         Large
-        //     </Button>
-        // </FormControl> 
-
-            // <FormControl fullWidth className={classes.margin} >
-            //     <InputLabel htmlFor="outlined-adornment-amount">"Enter hotel search keyword (i.e. name, address)"</InputLabel>
-            //     <OutlinedInput
-            //     id="outlined-adornment-amount"
-            //     value={value}
-            //     onChange={handleChange}
-            //     labelWidth={160}
-            //     />
-            // </FormControl>
     )
 }
 export default Search;
