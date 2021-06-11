@@ -65,7 +65,6 @@ npm run test:coverage
 
 ## New Endpoints
 
-
 Get all hotel list using params (SGD, CNY, USD, KRW).
  *  /api/hotels?partnerId=1&currency=<currency_name> 
 
